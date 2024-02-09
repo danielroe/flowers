@@ -8,16 +8,8 @@ Make sure to install the dependencies:
 
 ```bash
 # npm
-npm install
-
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
 bun install
+curl --proto '=https' --tlsv1.2 -sSf https://sh.edgedb.com | sh
 ```
 
 ## Development Server

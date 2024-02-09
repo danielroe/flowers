@@ -10,8 +10,13 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "@edgedb/generate": "^0.4.1",
     "nuxt": "^3.10.1",
     "vue": "^3.4.15",
     "vue-router": "^4.2.5"
+  },
+  "devDependencies": {
+    "@nuxt/ui": "latest",
+    "nuxt-edgedb-module": "0.0.37"
   }
 }
