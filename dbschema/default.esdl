@@ -5,7 +5,7 @@ module default {
 
   global current_user := (
     assert_single((
-      select User { id, name }
+      select User { id, name, email, userRole }
       filter .identity = global ext::auth::ClientTokenIdentity
     ))
   );
@@ -26,6 +26,9 @@ module default {
       rewrite update using (datetime_of_statement());
     }
 
+    access policy admin_has_full_access
+      allow all
+      using (global current_user.userRole ?= Role.admin);
     access policy author_has_full_access
       allow all
       using (.author ?= global current_user);
@@ -36,10 +39,18 @@ module default {
   type User {
     required identity: ext::auth::Identity;
     name: str;
-    email := .identity.email;
+    email: str;
     userRole: Role {
       default := "attendee";
     };
-    multi comments := .<author[is Comment]
+    multi comments := .<author[is Comment];
+
+    created: datetime {
+      rewrite insert using (datetime_of_statement());
+    }
+    updated: datetime {
+      rewrite insert using (datetime_of_statement());
+      rewrite update using (datetime_of_statement());
+    }
   }
 }

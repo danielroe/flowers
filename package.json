@@ -7,10 +7,12 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "generate-types": "npx @edgedb/generate edgeql-js"
   },
   "dependencies": {
     "@edgedb/generate": "^0.4.1",
+    "edgedb": "^1.4.1",
     "nuxt": "^3.10.1",
     "vue": "^3.4.15",
     "vue-router": "^4.2.5"

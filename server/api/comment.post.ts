@@ -14,7 +14,6 @@ export default defineEventHandler(async event => {
 
   const query = e.insert(e.Comment, {
     text,
-    author: identity.identity.id,
     public: isPublic,
   })
  
