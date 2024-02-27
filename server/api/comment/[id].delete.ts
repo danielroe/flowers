@@ -9,7 +9,7 @@ export default defineEventHandler(async event => {
 
   const client = useEdgeDb(event)
 
-  const query = e.delete(e.Comment, (comment) => ({
+  const query = e.delete(e.Comment, () => ({
     filter_single: { id }
   }))
 
