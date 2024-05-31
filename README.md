@@ -10,13 +10,31 @@ Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introdu
 
 ## Setup
 
-Make sure to install the dependencies:
+### Install EdgeDB CLI
 
 ```bash
 # npm
 bun install
 curl --proto '=https' --tlsv1.2 -sSf https://sh.edgedb.com | sh
 ```
+
+### Initialize EdgeDB Project
+
+```bash
+edgedb project init
+```
+
+### Configure EdgeDB Auth
+
+Open the EdgeDB UI to configure authentication:
+
+```bash
+edgedb ui
+```
+
+Inside the EdgeDB UI, go to the "Auth" tab and add a new "Email + password" provider.
+
+More information about the EdgeDB Auth can be found in the [EdgeDB documentation](https://www.edgedb.com/docs/guides/auth/index).
 
 ## Development Server
 
